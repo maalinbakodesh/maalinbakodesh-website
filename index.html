@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bais Medrash Ma'alin Bakodesh</title>
+  <meta name="description" content="A beis medrash for bnei aliya — solidifying identity as bnei Torah and igniting cheishek for growth in learning and avodas Hashem." />
+  <meta name="author" content="Bais Medrash Ma'alin Bakodesh" />
+  <meta property="og:title" content="Bais Medrash Ma'alin Bakodesh" />
+  <meta property="og:description" content="A unique environment for the aspiring ben aliya to discover the derech that ignites his cheishek." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== Reset ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ===== Design tokens ===== */
+    :root {
+      --bg:          #f7f4ec;       /* warm cream */
+      --text:        #2c2720;       /* dark warm brown */
+      --primary:     #1a2847;       /* dark navy */
+      --accent:      #c8962c;       /* warm gold */
+      --secondary-bg:#ede9e1;       /* very light warm gray */
+      --muted:       #7c6f5a;       /* warm gray-brown */
+      --border:      #ddd7cc;
+      --font-serif:  'Cormorant Garamond', Georgia, serif;
+      --font-sans:   'Inter', system-ui, sans-serif;
+      --max-w:       64rem;         /* ~1024px */
+      --max-w-wide:  72rem;         /* ~1152px */
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== Shared utility ===== */
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+
+    /* ===== Buttons ===== */
+    .btn {
+      display: inline-block;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: opacity 0.18s ease;
+      line-height: 1;
+    }
+    .btn:hover { opacity: 0.84; }
+
+    .btn-gold {
+      background: var(--accent);
+      color: var(--text);
+      padding: 14px 28px;
+    }
+
+    .btn-gold-sm {
+      background: var(--accent);
+      color: var(--text);
+      padding: 10px 20px;
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: rgba(247, 244, 236, 0.9);
+      border: 1px solid rgba(247, 244, 236, 0.3);
+      padding: 14px 28px;
+      font-weight: 500;
+      transition: background 0.18s ease;
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.08); opacity: 1; }
+
+
+    /* ===========================
+       NAVIGATION
+    =========================== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 69px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      background: rgba(247, 244, 236, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(200, 190, 170, 0.25);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .nav-logo img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .nav-logo-name {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .nav-logo-sub {
+      font-size: 0.6rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+
+    /* ===========================
+       HERO
+    =========================== */
+    .hero {
+      background-color: var(--primary);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 1.25rem 5rem;
+    }
+
+    .hero-inner {
+      max-width: var(--max-w);
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-logo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.75rem;
+      border: 2px solid rgba(255,255,255,0.15);
+    }
+
+    .hero-hebrew {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: rgba(247, 244, 236, 0.55);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.04em;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 8vw, 3.75rem);
+      font-weight: 400;
+      color: var(--bg);
+      line-height: 1.1;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+
+    /* ===========================
+       ABOUT / OUR YESHIVA
+    =========================== */
+    .about {
+      background: var(--bg);
+    }
+
+    .about-inner {
+      max-width: var(--max-w-wide);
+      margin: 0 auto;
+      padding: 7rem 1.25rem 5rem;
+    }
+
+    .about h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      font-weight: 400;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      max-width: 28ch;
+    }
+
+    .about p {
+      font-size: 0.975rem;
+      line-height: 1.8;
+      color: var(--text);
+      max-width: 66ch;
+      margin-bottom: 1.1rem;
+    }
+
+    .about-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .about-images img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+
+    /* ===========================
+       PROGRAM
+    =========================== */
+    .program {
+      background: var(--secondary-bg);
+      padding: 7rem 1.25rem;
+    }
+
+    .program-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .program h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      font-weight: 400;
+      color: var(--primary);
+      margin-bottom: 3rem;
+      line-height: 1.2;
+    }
+
+    .program-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .program-card {
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+
+    .program-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 0.7rem;
+    }
+
+    .program-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+
+    /* ===========================
+       DONATE / SUPPORT
+    =========================== */
+    .donate {
+      background: var(--bg);
+    }
+
+    .donate-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 7rem 1.25rem;
+    }
+
+    .donate h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      font-weight: 400;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+      max-width: 28ch;
+    }
+
+    .donate-desc {
+      font-size: 0.975rem;
+      line-height: 1.8;
+      color: var(--text);
+      max-width: 56ch;
+      margin-bottom: 2.25rem;
+    }
+
+    .btn-donate {
+      margin-bottom: 3.5rem;
+    }
+
+    .other-ways-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .other-ways-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+    }
+
+    .give-item h4 {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--primary);
+      margin-bottom: 0.45rem;
+    }
+
+    .give-item p {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer {
+      background: rgba(237, 233, 225, 0.45);
+      border-top: 1px solid var(--border);
+      padding: 3.5rem 1.25rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-w-wide);
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.75rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .footer-brand img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 34ch;
+    }
+
+    .footer-col h4 {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      margin-bottom: 0.9rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+      line-height: 1.55;
+    }
+
+    .footer-col ul li a {
+      color: var(--accent);
+      transition: opacity 0.15s;
+    }
+    .footer-col ul li a:hover { opacity: 0.75; }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+
+      .about-images {
+        grid-template-columns: 1fr;
+      }
+      .about-images img { height: 220px; }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .program  { padding: 5rem 1.25rem; }
+      .about-inner  { padding-top: 5rem; padding-bottom: 3.5rem; }
+      .donate-inner { padding-top: 5rem; padding-bottom: 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================
+       NAVIGATION
+  ========================= -->
+  <nav>
+    <a href="#top" class="nav-logo">
+      <img src="/assets/logo-DI5aL3Ga.jpeg" alt="Ma'alin Bakodesh logo" />
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Ma'alin Bakodesh</span>
+        <span class="nav-logo-sub">Bais Medrash</span>
+      </div>
+    </a>
+    <a href="https://secure.cardknox.com/maalinbakodesh?xAmount=0.00&AmountLocked=0"
+       class="btn btn-gold-sm"
+       target="_blank" rel="noopener noreferrer">
+      Donate
+    </a>
+  </nav>
+
+
+  <!-- ========================
+       HERO
+  ========================= -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <img src="/assets/logo-DI5aL3Ga.jpeg" alt="Bais Medrash Ma'alin Bakodesh logo" class="hero-logo" />
+      <p class="hero-hebrew">בית מדרש</p>
+      <h1>Ma'alin Bakodesh</h1>
+      <div class="hero-actions">
+        <a href="https://secure.cardknox.com/maalinbakodesh?xAmount=0.00&AmountLocked=0"
+           class="btn btn-gold"
+           target="_blank" rel="noopener noreferrer">
+          Donate Now
+        </a>
+        <a href="#about" class="btn btn-outline-white">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+       OUR YESHIVA
+  ========================= -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <p class="section-label">Our Yeshiva</p>
+      <h2>Solidifying identity as bnei Torah</h2>
+      <p>
+        Bais Medrash Ma'alin Bakodesh offers a unique, unparalleled environment where bachurim can solidify
+        their identity as bnei Torah and develop a sense of ownership over their growth in learning and avodas Hashem.
+      </p>
+      <p>
+        In an atmosphere permeated with genuine warmth and passion for Torah and Yiddishkeit, our approach focuses
+        on taking achrayus for personal growth and discovering the greatness within. Our yeshiva fosters deep
+        personal connections with the rebbeim and a beautiful sense of achdus among the talmidim.
+      </p>
+      <div class="about-images">
+        <img src="/assets/beismedrash-Ik7COfoz.jpg" alt="The beis medrash" />
+        <img src="/assets/sefarim-CuSgIbzI.jpg" alt="Sefarim" />
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+       THE PROGRAM
+  ========================= -->
+  <section class="program" id="program">
+    <div class="program-inner">
+      <p class="section-label">The Program</p>
+      <h2>Designed for the ben aliya</h2>
+      <div class="program-cards">
+        <div class="program-card">
+          <h3>Weekly Retzifus Seder</h3>
+          <p>A structured framework that helps each bachur build consistency and ownership in his learning.</p>
+        </div>
+        <div class="program-card">
+          <h3>One-on-One with Yungerleit</h3>
+          <p>Personal chavrusahs and ongoing shakla vetarya projects that deepen understanding and connection.</p>
+        </div>
+        <div class="program-card">
+          <h3>Farbrengens &amp; Outings</h3>
+          <p>Thursday night farbrengens, Motzaei Shabbos outreach, and outings with rebbeim to celebrate accomplishments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+       SUPPORT THE YESHIVA
+  ========================= -->
+  <section class="donate" id="support">
+    <div class="donate-inner">
+      <p class="section-label">Support the Yeshiva</p>
+      <h2>Be a partner in our talmidim's growth</h2>
+      <p class="donate-desc">
+        Your contribution sustains the limud haTorah, the rebbeim, and the warm environment that empowers
+        every bachur to reach his potential. All donations are tax-deductible.
+      </p>
+      <a href="https://secure.cardknox.com/maalinbakodesh?xAmount=0.00&AmountLocked=0"
+         class="btn btn-gold btn-donate"
+         target="_blank" rel="noopener noreferrer">
+        Donate by Credit Card
+      </a>
+
+      <p class="other-ways-label">Other Ways to Give</p>
+      <div class="other-ways-grid">
+        <div class="give-item">
+          <h4>Zelle</h4>
+          <p>donate@maalinbakodesh.org</p>
+        </div>
+        <div class="give-item">
+          <h4>EIN (Tax ID)</h4>
+          <p>39-4279037</p>
+        </div>
+        <div class="give-item">
+          <h4>Check / Mail</h4>
+          <p>
+            Bais Medrash Ma'alin Bakodesh<br />
+            299 West Crooked Hill Rd<br />
+            Pearl River, NY 10965
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+       FOOTER
+  ========================= -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <img src="/assets/logo-DI5aL3Ga.jpeg" alt="Ma'alin Bakodesh" />
+          <div>
+            <div class="footer-brand-name">Ma'alin Bakodesh</div>
+            <p class="footer-tagline">
+              A bais medrash for bnei aliya — guiding bachurim to discover the derech that ignites their cheishek.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>
+              <a href="mailto:office@maalinbakodesh.org">office@maalinbakodesh.org</a>
+            </li>
+            <li>
+              299 West Crooked Hill Rd<br />Pearl River, NY 10965
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Giving</h4>
+          <ul>
+            <li>EIN: 39-4279037</li>
+            <li>Zelle: donate@maalinbakodesh.org</li>
+            <li>
+              <a href="https://secure.cardknox.com/maalinbakodesh?xAmount=0.00&AmountLocked=0"
+                 target="_blank" rel="noopener noreferrer">
+                Donate by card
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Bais Medrash Ma'alin Bakodesh. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
